@@ -34,7 +34,6 @@ function Login({ history }) {
         history.push('/meals');
       } }
     >
-      <h1>Login</h1>
       <Input
         label="Email"
         type="email"
