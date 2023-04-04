@@ -1,9 +1,16 @@
 import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import HeaderContext from '../context/HeaderContext';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import { SearchBar } from './SearchBar';
 
 function Header({ pathname, title }) {
   const shouldDisplayIcon = pathname === '/meals' || pathname === '/drinks';
+  const {
+    showBar,
+    showBarFunc,
+  } = useContext(HeaderContext);
   return (
     <div>
       <img
@@ -15,12 +22,15 @@ function Header({ pathname, title }) {
         { title }
       </h1>
       { shouldDisplayIcon && (
-        <img
-          src={ searchIcon }
-          alt="search"
-          data-testid="search-top-btn"
-        />
+        <button onClick={ showBarFunc }>
+          <img
+            src={ searchIcon }
+            alt="search"
+            data-testid="search-top-btn"
+          />
+        </button>
       )}
+      { showBar && (<SearchBar />) }
     </div>
   );
 }
