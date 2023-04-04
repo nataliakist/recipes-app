@@ -6,6 +6,7 @@ export default function HeaderProvider({ children }) {
   const [showBar, setShowBar] = useState(false);
   const [checkedRadioButton, setCheckedRadioButton] = useState('ingredient');
   const [searchInput, setSearchInput] = useState('');
+  // :)
 
   const showBarFunc = useCallback(() => {
     const bool = showBar;
