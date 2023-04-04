@@ -3,7 +3,7 @@ import HeaderContext from '../context/HeaderContext';
 import Input from './Input';
 import Button from './Button';
 
-export function SearchBar() {
+export function SearchBar(page) {
   const {
     checkedRadioButton,
     checkedRadioButtonFunc,
@@ -66,7 +66,7 @@ export function SearchBar() {
           label="Search"
           moreClasses=""
           type="button"
-          onClick={ searchButtonClick }
+          onClick={ () => searchButtonClick(page) }
           //   disabled=""
           dataTestId="exec-search-btn"
         />

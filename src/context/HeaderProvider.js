@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useCallback, useMemo, useState } from 'react';
+import { getDrinks } from '../services/drinksAPI';
 import { getMeals } from '../services/mealsAPI';
 import HeaderContext from './HeaderContext';
 
@@ -22,16 +23,18 @@ export default function HeaderProvider({ children }) {
     setShowAlert(false);
   };
 
-  const searchButtonClick = useCallback(async () => {
-    console.log('clicou');
+  const searchButtonClick = useCallback(async ({ page }) => {
     const input = searchInput;
     const category = checkedRadioButton;
-    console.log(category);
     switch (category) {
     case 'ingredient': {
-      const result = await getMeals('i', input, 'filter');
-      console.log(result);
-      setFilteredRecipes(result);
+      if (page === 'Meals') {
+        const result = await getMeals('i', input, 'filter');
+        setFilteredRecipes(result);
+      } else {
+        const result = await getDrinks('i', input, 'filter');
+        setFilteredRecipes(result);
+      }
       break;
     }
     case 'first-letter': {
@@ -39,15 +42,23 @@ export default function HeaderProvider({ children }) {
         setShowAlert(true);
         break;
       }
-      const result = await getMeals('f', input, 'search');
-      console.log(result);
-      setFilteredRecipes(result);
+      if (page === 'Meals') {
+        const result = await getMeals('f', input, 'search');
+        setFilteredRecipes(result);
+      } else {
+        const result = await getDrinks('f', input, 'search');
+        setFilteredRecipes(result);
+      }
       break;
     }
     case 'name': {
-      const result = await getMeals('s', input, 'search');
-      console.log(result);
-      setFilteredRecipes(result);
+      if (page === 'Meals') {
+        const result = await getMeals('s', input, 'search');
+        setFilteredRecipes(result);
+      } else {
+        const result = await getDrinks('s', input, 'search');
+        setFilteredRecipes(result);
+      }
       break;
     }
     default:

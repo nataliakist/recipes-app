@@ -30,7 +30,7 @@ function Header({ pathname, title }) {
           />
         </button>
       )}
-      { showBar && (<SearchBar />) }
+      { showBar && (<SearchBar page={ title } />) }
     </div>
   );
 }
