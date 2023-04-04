@@ -12,7 +12,7 @@ describe('Testando as funcionalidades da aplicação', () => {
   it('Testando se os inputs da página Login aparecem ao iniciar a aplicação', () => {
     renderWithRouter(<App />);
 
-    const title = screen.getByText(/Login/i);
+    const title = screen.getByText(/Entrar/i);
     const emailInput = screen.getByTestId(email);
     const passwordInput = screen.getByTestId(password);
     const button = screen.getByRole('button');
