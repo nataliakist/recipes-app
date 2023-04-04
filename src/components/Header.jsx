@@ -28,5 +28,6 @@ function Header({ pathname, title }) {
 export default Header;
 
 Header.propTypes = {
-  history: PropTypes.object,
+  pathname: PropTypes.string,
+  title: PropTypes.string,
 }.isRequired;
