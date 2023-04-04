@@ -9,6 +9,8 @@ export function SearchBar() {
     checkedRadioButtonFunc,
     inputChange,
     searchInput,
+    searchButtonClick,
+    showAlert,
   } = useContext(HeaderContext);
   return (
     <div>
@@ -63,12 +65,19 @@ export function SearchBar() {
         <Button
           label="Search"
           moreClasses=""
-          type="submit"
-          //   onClick=""
+          type="button"
+          onClick={ searchButtonClick }
           //   disabled=""
           dataTestId="exec-search-btn"
         />
       </form>
+      { showAlert
+      && (
+      // ainda falta lançar o alert na tela principal
+        <h3>
+          Your search must have only 1 (one) character
+        </h3>
+      )}
     </div>
   );
 }
