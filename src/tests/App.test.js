@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import renderWithRouter from './helpers/renderWithRouter';
 import App from '../App';
+import Footer from '../components/Footer';
 
 describe('Testando as funcionalidades da aplicação', () => {
   const email = 'email-input';
@@ -71,5 +72,24 @@ describe('Testando as funcionalidades da aplicação', () => {
     });
 
     expect(history.location.pathname).toBe('/drinks');
+  });
+  it('testa se existem botoes, imagens e redirecionamento no componente footer', () => {
+    const { history } = renderWithRouter(<Footer />);
+
+    const buttonDrinks = screen.getByTestId('drinks-bottom-btn');
+    const imgDrinks = screen.getByAltText('Logo de uma colher e faca');
+    const buttonMeals = screen.getByTestId('meals-bottom-btn');
+    const imgMeals = screen.getByAltText('Logo de uma taça');
+
+    expect(buttonDrinks).toBeVisible();
+    expect(imgDrinks).toBeVisible();
+    expect(buttonMeals).toBeVisible();
+    expect(imgMeals).toBeVisible();
+
+    userEvent.click(buttonDrinks);
+    expect(history.location.pathname).toBe('/drinks');
+
+    userEvent.click(buttonMeals);
+    expect(history.location.pathname).toBe('/meals');
   });
 });

@@ -27,7 +27,7 @@ function Footer() {
         >
           <img
             src={ drinkIcon }
-            alt="Logo de um colher e faca"
+            alt="Logo de uma colher e faca"
           />
         </button>
       </div>
