@@ -57,4 +57,19 @@ describe('Testando as funcionalidades da aplicação', () => {
       expect(localStorage.setItem).toHaveBeenCalled();
     });
   });
+  it('Testando o componente Footer.js', () => {
+    const { history } = renderWithRouter(<App />);
+
+    act(() => {
+      history.push('/meals');
+    });
+
+    expect(history.location.pathname).toBe('/meals');
+
+    act(() => {
+      history.push('/drinks');
+    });
+
+    expect(history.location.pathname).toBe('/drinks');
+  });
 });
