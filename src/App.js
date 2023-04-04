@@ -1,10 +1,13 @@
 import React from 'react';
+import HeaderProvider from './context/HeaderProvider';
 import Routes from './Routes';
 
 class App extends React.Component {
   render() {
     return (
-      <Routes />
+      <HeaderProvider>
+        <Routes />
+      </HeaderProvider>
     );
   }
 }
