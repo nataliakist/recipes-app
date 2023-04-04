@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderProvider from './context/HeaderProvider';
 import Routes from './Routes';
 
 import './styles.css';
@@ -6,9 +7,9 @@ import './styles.css';
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <HeaderProvider>
         <Routes />
-      </div>
+      </HeaderProvider>
     );
   }
 }
