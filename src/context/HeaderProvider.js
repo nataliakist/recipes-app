@@ -95,15 +95,12 @@ export default function HeaderProvider({ children }) {
     showBarFunc,
     inputChange,
     searchInput,
-<<<<<<< HEAD
     showAlertNoRecipes,
     searchButtonClick,
     filteredRecipes,
     emptyFilter,
-=======
     email,
     setEmail,
->>>>>>> 40fa9b1 (refazendo o requisito 58 com email no estado global)
   }), [
     showAlertNoRecipes,
     filteredRecipes,
