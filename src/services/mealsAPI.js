@@ -6,7 +6,8 @@
 // type: c == categorias || a == nacionalidades || i == ingredientes;
 // search: nome da categoria de pesquisa (ex: American);
 
-export const getMeals = async (type, search, filter = 'list') => {
-  const data = await (await fetch(`https://www.themealdb.com/api/json/v1/1/${filter}.php?${type}=${search}`)).json();
+export const getMeals = async (type, search, filter = 'list', key) => {
+  const response = await (await fetch(`https://www.themealdb.com/api/json/v1/1/${filter}.php?${type}=${search}`)).json();
+  const data = key ? await response[key] : await response;
   return data;
 };
