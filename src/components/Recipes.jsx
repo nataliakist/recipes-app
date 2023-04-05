@@ -112,10 +112,12 @@ function Recipes() {
         {
           recipes.map((recipe, index) => (
             <RecipesCard
-              key={ index }
+              key={ `${pathname}-${index}` }
               index={ index }
               name={ recipe[pathname === '/meals' ? 'strMeal' : 'strDrink'] }
               image={ recipe[pathname === '/meals' ? 'strMealThumb' : 'strDrinkThumb'] }
+              URL={ `${pathname}/${recipe[pathname === '/meals'
+                ? 'idMeal' : 'idDrink']}` }
             />
           ))
         }
