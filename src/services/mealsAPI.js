@@ -2,7 +2,7 @@
 // nacionalidades(a): https://www.themealdb.com/api/json/v1/1/list.php?a=list
 // ingredientes(i): https://www.themealdb.com/api/json/v1/1/list.php?i=list
 
-// filter: filter || list (para retornar tudo);
+// filter: filter || search || list (para retornar tudo);
 // type: c == categorias || a == nacionalidades || i == ingredientes;
 // search: nome da categoria de pesquisa (ex: American);
 
