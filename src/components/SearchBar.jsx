@@ -19,7 +19,6 @@ export function SearchBar(page) {
 
   // Verifica se o retorno da API só tem um item, pois neste caso o usuário tem que ser direcionado à página de detalhes da receita
   const checkData = () => {
-    console.log(filteredRecipes);
     const pg = Object.values(page);
     if (filteredRecipes.length === 1) {
       switch (pg[0]) {
