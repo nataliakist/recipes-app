@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Button from '../components/Button';
-import HeaderContext from '../context/HeaderContext';
 
 function Profile() {
   const history = useHistory();
-  const { email } = useContext(HeaderContext);
+  // const { email } = useContext(HeaderContext);
+  const userEmail = JSON.parse(localStorage.getItem('user'));
 
   return (
     <div>
@@ -15,7 +14,7 @@ function Profile() {
       <p
         data-testid="profile-email"
       >
-        { email }
+        { userEmail.email }
       </p>
       <Button
         label="Done Recipes"
