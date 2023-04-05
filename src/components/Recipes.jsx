@@ -40,18 +40,63 @@ function Recipes() {
     default:
       break;
     }
-
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
+
+  const handleClick = (category) => {
+    if (category) {
+      switch (pathname) {
+      case '/meals':
+        getMeals('c', category, 'filter', 'meals')
+          .then((response) => response
+            .slice(0, twelve))
+          .then(setRecipes);
+        break;
+      case '/drinks':
+        getDrinks('c', category, 'filter', 'drinks')
+          .then((response) => response
+            .slice(0, twelve))
+          .then(setRecipes);
+        break;
+      default:
+        break;
+      }
+    } else {
+      switch (pathname) {
+      case '/meals':
+        getMeals('s', '', 'search', 'meals')
+          .then((response) => response
+            .slice(0, twelve))
+          .then(setRecipes);
+        break;
+      case '/drinks':
+        getDrinks('s', '', 'search', 'drinks')
+          .then((response) => response
+            .slice(0, twelve))
+          .then(setRecipes);
+        break;
+      default:
+        break;
+      }
+    }
+  };
+
   return (
     <div>
       <header>
-        <button>All</button>
+        <button
+          type="button"
+          data-testid="All-category-filter"
+          onClick={ () => handleClick() }
+        >
+          All
+        </button>
         {
           categories.map((category, index) => (
             <button
               key={ index }
               data-testid={ `${category.strCategory}-category-filter` }
+              onClick={ () => handleClick(category.strCategory) }
             >
               { category.strCategory }
             </button>
