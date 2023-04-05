@@ -14,6 +14,7 @@ function Recipes() {
 
   const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState(null);
 
   useEffect(() => {
     switch (pathname) {
@@ -43,20 +44,22 @@ function Recipes() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  const handleClick = (category) => {
-    if (category) {
+  const handleClick = ({ target }) => {
+    if (target.textContent !== 'All' && target.textContent !== category) {
       switch (pathname) {
       case '/meals':
-        getMeals('c', category, 'filter', 'meals')
+        getMeals('c', target.textContent, 'filter', 'meals')
           .then((response) => response
             .slice(0, twelve))
           .then(setRecipes);
+        setCategory(target.textContent);
         break;
       case '/drinks':
-        getDrinks('c', category, 'filter', 'drinks')
+        getDrinks('c', target.textContent, 'filter', 'drinks')
           .then((response) => response
             .slice(0, twelve))
           .then(setRecipes);
+        setCategory(target.textContent);
         break;
       default:
         break;
@@ -68,12 +71,14 @@ function Recipes() {
           .then((response) => response
             .slice(0, twelve))
           .then(setRecipes);
+        setCategory('');
         break;
       case '/drinks':
         getDrinks('s', '', 'search', 'drinks')
           .then((response) => response
             .slice(0, twelve))
           .then(setRecipes);
+        setCategory('');
         break;
       default:
         break;
@@ -87,18 +92,18 @@ function Recipes() {
         <button
           type="button"
           data-testid="All-category-filter"
-          onClick={ () => handleClick() }
+          onClick={ (e) => handleClick(e) }
         >
           All
         </button>
         {
-          categories.map((category, index) => (
+          categories.map((category1, index) => (
             <button
               key={ index }
-              data-testid={ `${category.strCategory}-category-filter` }
-              onClick={ () => handleClick(category.strCategory) }
+              data-testid={ `${category1.strCategory}-category-filter` }
+              onClick={ (e) => handleClick(e) }
             >
-              { category.strCategory }
+              { category1.strCategory }
             </button>
           ))
         }
