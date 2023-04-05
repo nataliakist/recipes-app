@@ -17,8 +17,7 @@ function Recipes() {
   const [category, setCategory] = useState(null);
 
   useEffect(() => {
-    switch (pathname) {
-    case '/meals':
+    if (pathname === '/meals') {
       getMeals('s', '', 'search', 'meals')
         .then((response) => response
           .slice(0, twelve))
@@ -27,8 +26,7 @@ function Recipes() {
         .then((response) => response
           .slice(0, five))
         .then(setCategories);
-      break;
-    case '/drinks':
+    } else if (pathname === '/drinks') {
       getDrinks('s', '', 'search', 'drinks')
         .then((response) => response
           .slice(0, twelve))
@@ -37,32 +35,24 @@ function Recipes() {
         .then((response) => response
           .slice(0, five))
         .then(setCategories);
-      break;
-    default:
-      break;
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const handleClick = ({ target }) => {
     if (target.textContent !== 'All' && target.textContent !== category) {
-      switch (pathname) {
-      case '/meals':
+      if (pathname === '/meals') {
         getMeals('c', target.textContent, 'filter', 'meals')
           .then((response) => response
             .slice(0, twelve))
           .then(setRecipes);
         setCategory(target.textContent);
-        break;
-      case '/drinks':
+      } else if (pathname === '/drinks') {
         getDrinks('c', target.textContent, 'filter', 'drinks')
           .then((response) => response
             .slice(0, twelve))
           .then(setRecipes);
         setCategory(target.textContent);
-        break;
-      default:
-        break;
       }
     } else {
       switch (pathname) {

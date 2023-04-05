@@ -42,6 +42,7 @@ export function SearchBar(page) {
   };
   useEffect(() => {
     checkData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filteredRecipes]); // Warning não é erro de Lint! Pode deixar assim.
 
   return (
