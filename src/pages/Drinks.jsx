@@ -1,8 +1,12 @@
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function Drinks() {
   return (
-    <Header title="Drinks" pathname="/drinks" />
+    <div>
+      <Header title="Drinks" pathname="/drinks" />
+      <Footer />
+    </div>
   );
 }
 

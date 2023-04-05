@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import HeaderContext from '../context/HeaderContext';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
@@ -13,11 +14,13 @@ function Header({ pathname, title }) {
   } = useContext(HeaderContext);
   return (
     <div>
-      <img
-        src={ profileIcon }
-        alt="profile"
-        data-testid="profile-top-btn"
-      />
+      <Link to="/profile">
+        <img
+          src={ profileIcon }
+          alt="profile"
+          data-testid="profile-top-btn"
+        />
+      </Link>
       <h1 data-testid="page-title">
         { title }
       </h1>
@@ -30,7 +33,7 @@ function Header({ pathname, title }) {
           />
         </button>
       )}
-      { showBar && (<SearchBar />) }
+      { showBar && (<SearchBar page={ title } />) }
     </div>
   );
 }
@@ -38,5 +41,6 @@ function Header({ pathname, title }) {
 export default Header;
 
 Header.propTypes = {
-  history: PropTypes.object,
+  pathname: PropTypes.string,
+  title: PropTypes.string,
 }.isRequired;
