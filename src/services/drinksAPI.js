@@ -5,6 +5,10 @@
 // filter: filter || search || list (para retornar tudo);
 // type: c == categorias || a == nacionalidades || i == ingredientes;
 // search: nome da categoria de pesquisa (ex: American);
+export const getDrinks = async (type, search, filter = 'list') => {
+  const data = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${filter}.php?${type}=${search}`)).json();
+  return data;
+};
 
 export const getRecomendedDrinks = async () => {
   const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=');
@@ -12,7 +16,8 @@ export const getRecomendedDrinks = async () => {
   return data;
 };
 
-export const getDrinks = async (type, search, filter = 'list') => {
-  const data = await (await fetch(`https://www.thecocktaildb.com/api/json/v1/1/${filter}.php?${type}=${search}`)).json();
+export const getDetailedDrink = async (id) => {
+  const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const data = await response.json();
   return data;
 };

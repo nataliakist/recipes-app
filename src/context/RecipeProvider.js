@@ -1,25 +1,40 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useLocation } from 'react-router-dom';
 import RecipeContext from './RecipeContext';
-import { getMeals, getDetailedMeals } from '../services/mealsAPI';
+import { getDetailedMeals, getRecomendedMeals } from '../services/mealsAPI';
+import { getRecomendedDrinks, getDetailedDrink } from '../services/drinksAPI';
 
 export default function RecipeProvider({ children }) {
   const [id, setId] = useState(null);
   const [fullDetails, setFullDetails] = useState(null);
+  const [recommended, setRecommended] = useState(null);
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    getMeals('a', 'Italian', 'filter')
-      .then((response) => setId(response.meals[0].idMeal));
     if (id !== null) {
-      getDetailedMeals(id)
-        .then((response) => setFullDetails((response.meals)[0]));
+      if (pathname.includes('meals')) {
+        getDetailedMeals(id)
+          .then((response) => setFullDetails((response.meals)[0]));
+        getRecomendedDrinks()
+          .then((response) => setRecommended(response.drinks));
+      } else if (pathname.includes('drinks')) {
+        getDetailedDrink(id)
+          .then((response) => setFullDetails((response.drinks)[0]));
+        getRecomendedMeals()
+          .then((response) => setRecommended(response.meals));
+      }
     }
   }, [id]);
 
   const values = useMemo(() => ({
     fullDetails,
+    recommended,
+    setId,
   }), [
     fullDetails,
+    recommended,
   ]);
 
   return (

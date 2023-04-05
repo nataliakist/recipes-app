@@ -1,23 +1,23 @@
 import { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import DetailedRecipeCard from '../components/DetailedRecipeCard';
-import Header from '../components/Header';
 import RecipeContext from '../context/RecipeContext';
+import Header from '../components/Header';
 
-function MealsDetailedRecipes() {
+function DrinksDetailedRecipes() {
   const { setId } = useContext(RecipeContext);
-  const { mealsId } = useParams();
+  const { drinksId } = useParams();
 
   useEffect(() => {
-    setId(mealsId);
-  }, [setId, mealsId]);
+    setId(drinksId);
+  }, [setId, drinksId]);
 
   return (
     <>
-      <Header title="Detailed Recipes" />
+      <Header title="Detailed Drinks" />
       <DetailedRecipeCard />
     </>
   );
 }
 
-export default MealsDetailedRecipes;
+export default DrinksDetailedRecipes;
