@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import HeaderContext from '../context/HeaderContext';
 import Input from './Input';
 import Button from './Button';
@@ -10,12 +11,45 @@ export function SearchBar(page) {
     inputChange,
     searchInput,
     searchButtonClick,
-    showAlert,
+    filteredRecipes,
+    emptyFilter,
   } = useContext(HeaderContext);
+
+  const history = useHistory();
+
+  // Verifica se o retorno da API só tem um item, pois neste caso o usuário tem que ser direcionado à página de detalhes da receita
+  const checkData = () => {
+    console.log(filteredRecipes);
+    const pg = Object.values(page);
+    if (filteredRecipes.length === 1) {
+      switch (pg[0]) {
+      case 'Meals': {
+        const id = filteredRecipes[0].idMeal;
+        history.push(`/meals/${id}`);
+        break;
+      }
+      case 'Drinks': {
+        const id = filteredRecipes[0].idDrink;
+        console.log(id);
+        history.push(`/drinks/${id}`);
+        break;
+      }
+      default:
+        break;
+      }
+    }
+    if (!filteredRecipes) { emptyFilter(); }
+  };
+  useEffect(() => {
+    checkData();
+  }, [filteredRecipes]); // Warning não é erro de Lint! Pode deixar assim.
+
   return (
     <div>
       <form
-        onSubmit={ (e) => e.preventDefault }
+        onSubmit={ (e) => {
+          e.preventDefault();
+        } }
       >
         <label htmlFor="search-input">
           <Input
@@ -66,18 +100,13 @@ export function SearchBar(page) {
           label="Search"
           moreClasses=""
           type="button"
-          onClick={ () => searchButtonClick(page) }
+          onClick={ () => {
+            searchButtonClick(page);
+          } }
           //   disabled=""
           dataTestId="exec-search-btn"
         />
       </form>
-      { showAlert
-      && (
-      // ainda falta lançar o alert na tela principal
-        <h3>
-          Your search must have only 1 (one) character
-        </h3>
-      )}
     </div>
   );
 }
