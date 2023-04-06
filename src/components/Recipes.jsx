@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import propTypes from 'prop-types';
+
+import HeaderContext from '../context/HeaderContext';
 
 import RecipesCard from './RecipesCard';
 import { getMeals } from '../services/mealsAPI';
@@ -16,8 +18,13 @@ function Recipes() {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState(null);
 
+  const { filteredRecipes } = useContext(HeaderContext);
+
   useEffect(() => {
-    if (pathname === '/meals') {
+    if (filteredRecipes.length > 1) {
+      console.log('aqui');
+      setRecipes(filteredRecipes);
+    } else if (pathname === '/meals') {
       getMeals('s', '', 'search', 'meals')
         .then((response) => response
           .slice(0, twelve))
@@ -37,7 +44,7 @@ function Recipes() {
         .then(setCategories);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname, filteredRecipes]);
 
   const handleClick = ({ target }) => {
     if (target.textContent !== 'All' && target.textContent !== category) {
