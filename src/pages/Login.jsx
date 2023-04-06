@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import HeaderContext from '../context/HeaderContext';
 
 function Login({ history }) {
-  const { email, setEmail } = useContext(HeaderContext);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isEntryButtonDisabled, setIsEntryButtonDisabled] = useState(false);
 
