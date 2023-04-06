@@ -2,20 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Recipes from '../components/Recipes';
 
 function Meals({ history }) {
-  const id = '11007';
   return (
     <>
-      <div>
-        <Header title="Meals" pathname="/meals" />
-        <button
-          onClick={ () => history.push(`/drinks/${id}`) }
-          type="button"
-        >
-          Tela de drink detalhada
-        </button>
-      </div>
+    <div>
+      <Header title="Meals" pathname="/meals" />
+      <Recipes />
       <Footer />
     </>
   );
