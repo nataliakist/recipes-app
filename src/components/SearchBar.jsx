@@ -39,6 +39,7 @@ export function SearchBar(page) {
     }
     if (!filteredRecipes) { emptyFilter(); }
   };
+
   useEffect(() => {
     checkData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,7 +64,6 @@ export function SearchBar(page) {
           />
         </label>
         <label htmlFor="ingredient-search-radio">
-          Ingredient
           <input
             type="radio"
             value="ingredient"
@@ -71,9 +71,10 @@ export function SearchBar(page) {
             checked={ checkedRadioButton === 'ingredient' }
             onChange={ checkedRadioButtonFunc }
           />
+          Ingredient
         </label>
+        <p />
         <label htmlFor="name-search-radio">
-          Name
           <input
             type="radio"
             value="name"
@@ -81,11 +82,11 @@ export function SearchBar(page) {
             data-testid="name-search-radio"
             checked={ checkedRadioButton === 'name' }
             onChange={ checkedRadioButtonFunc }
-
           />
+          Name
         </label>
+        <p />
         <label htmlFor="first-letter-search-radio">
-          First Letter
           <input
             type="radio"
             value="first-letter"
@@ -93,9 +94,10 @@ export function SearchBar(page) {
             data-testid="first-letter-search-radio"
             checked={ checkedRadioButton === 'first-letter' }
             onChange={ checkedRadioButtonFunc }
-
           />
+          First Letter
         </label>
+        <p />
         <Button
           label="Search"
           moreClasses=""
@@ -106,6 +108,7 @@ export function SearchBar(page) {
           //   disabled=""
           dataTestId="exec-search-btn"
         />
+        <p />
       </form>
     </div>
   );
