@@ -1,25 +1,24 @@
 import React from 'react';
-import { screen, act, waitFor } from '@testing-library/react';
+import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from './helpers/renderWithRouter';
 
 import App from '../App';
 
-const logar = async () => {
-  act(() => {
-    userEvent.type(screen.getByTestId('email-input'), 'teste@teste.com');
-    userEvent.type(screen.getByTestId('password-input'), 'testando');
-    userEvent.click(screen.getByTestId('login-submit-btn'));
-  });
+const logar = () => {
+  userEvent.type(screen.getByTestId('email-input'), 'teste@teste.com');
+  userEvent.type(screen.getByTestId('password-input'), 'testando');
+  userEvent.click(screen.getByTestId('login-submit-btn'));
 };
 
 describe('Profile', () => {
   const profileTestId = 'profile-top-btn';
-  it('Testando se os inputs da página Login funcionam corretamente', async () => {
+  it('Testando se os inputs da página Login funcionam corretamente', () => {
     const { history } = renderWithRouter(<App />);
 
+    logar();
+
     waitFor(() => {
-      logar();
       const profileButton = screen.getByTestId(profileTestId);
       expect(profileButton).toBeInTheDocument();
 
@@ -43,19 +42,17 @@ describe('Profile', () => {
   it('Testa se ao clica no botão favorite redireciona para pagina favorites-recipes', async () => {
     const { history } = renderWithRouter(<App />);
 
-    waitFor(() => {
-      logar();
-      const profileButton = screen.getByTestId(profileTestId);
-      expect(profileButton).toBeInTheDocument();
+    logar();
+    const profileButton = screen.getByTestId(profileTestId);
+    expect(profileButton).toBeInTheDocument();
 
-      userEvent.click(profileButton);
+    userEvent.click(profileButton);
 
-      const favoriteButton = screen.getByTestId('profile-favorite-btn');
+    const favoriteButton = screen.getByTestId('profile-favorite-btn');
 
-      userEvent.click(favoriteButton);
+    userEvent.click(favoriteButton);
 
-      expect(history.location.pathname).toBe('/favorite-recipes');
-    });
+    expect(history.location.pathname).toBe('/favorite-recipes');
   });
   it('Testa se ao clica no botão favorite redireciona para pagina favorites-recipes', async () => {
     const { history } = renderWithRouter(<App />);
