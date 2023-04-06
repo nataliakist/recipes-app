@@ -5,7 +5,6 @@ import Button from '../components/Button';
 
 function Profile() {
   const history = useHistory();
-  // const { email } = useContext(HeaderContext);
   const userEmail = JSON.parse(localStorage.getItem('user'));
 
   return (
