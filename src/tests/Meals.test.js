@@ -62,7 +62,7 @@ describe('Testes do componente Recipes', () => {
       expect(corba).toBeInTheDocument();
     }, { timeout: 5000 });
   });
-  it('Testa se ao clicar em uma receita, abre a página de detalhes da mesma', async () => {
+  it('Testa se ao clicar em uma receita, abre a sua página de detalhes', async () => {
     const { history } = renderWithRouter(<App />);
 
     await waitFor(async () => {
