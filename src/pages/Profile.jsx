@@ -2,6 +2,7 @@ import { useHistory } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Button from '../components/Button';
+import Footer from '../components/Footer';
 
 function Profile() {
   const history = useHistory();
@@ -36,6 +37,7 @@ function Profile() {
           history.push('/');
         } }
       />
+      <Footer />
     </div>
   );
 }
