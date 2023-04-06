@@ -6,8 +6,6 @@ import Footer from '../components/Footer';
 
 function Profile() {
   const history = useHistory();
-  const userEmail = JSON.parse(localStorage.getItem('user'));
-
   return (
     <div>
       <Header title="Profile" />

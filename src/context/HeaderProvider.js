@@ -10,9 +10,6 @@ export default function HeaderProvider({ children }) {
   const [searchInput, setSearchInput] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [showAlertNoRecipes, setShowAlertNoRecipes] = useState(false);
-  // o alerta de retorno vazio da API pode ser feito no próprio componente
-  const [email, setEmail] = useState('');
-  // :)
 
   const showBarFunc = useCallback(() => {
     const bool = showBar;
@@ -99,8 +96,6 @@ export default function HeaderProvider({ children }) {
     searchButtonClick,
     filteredRecipes,
     emptyFilter,
-    email,
-    setEmail,
   }), [
     showAlertNoRecipes,
     filteredRecipes,
@@ -109,7 +104,6 @@ export default function HeaderProvider({ children }) {
     showBar,
     checkedRadioButton,
     showBarFunc,
-    email,
   ]);
 
   return (
