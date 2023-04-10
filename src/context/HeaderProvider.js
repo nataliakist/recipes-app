@@ -9,7 +9,6 @@ export default function HeaderProvider({ children }) {
   const [checkedRadioButton, setCheckedRadioButton] = useState('ingredient');
   const [searchInput, setSearchInput] = useState('');
   const [filteredRecipes, setFilteredRecipes] = useState([]);
-  const [showAlertNoRecipes, setShowAlertNoRecipes] = useState(false);
 
   const showBarFunc = useCallback(() => {
     const bool = showBar;
@@ -21,8 +20,6 @@ export default function HeaderProvider({ children }) {
     const { value } = target;
     setSearchInput(value);
   };
-
-  const emptyFilter = () => setShowAlertNoRecipes(true);
 
   const verifyResultMeals = (result) => {
     if (!result.meals) {
@@ -92,12 +89,10 @@ export default function HeaderProvider({ children }) {
     showBarFunc,
     inputChange,
     searchInput,
-    showAlertNoRecipes,
     searchButtonClick,
     filteredRecipes,
-    emptyFilter,
+
   }), [
-    showAlertNoRecipes,
     filteredRecipes,
     searchButtonClick,
     searchInput,
