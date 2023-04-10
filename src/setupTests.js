@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 let store = {};
 
-const localStorageMock = {
+export const localStorageMock = {
   getItem(key) {
     return store[key];
   },
@@ -16,5 +16,3 @@ const localStorageMock = {
   getAll() { return store; },
 
 };
-
-Object.defineProperty(global, 'localStorage', { value: localStorageMock });
