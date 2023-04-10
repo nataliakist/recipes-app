@@ -41,6 +41,7 @@ describe('Barra de Pesquisa - Header - Página Meals', () => {
       expect(screen.getByTestId(searchBtnFilter)).toBeVisible();
     });
   });
+
   it('Página Meals - Verificação de filtro 1: no caso de a pesquisa retornar mais que 1 componente e menos que 12, exiba todos', async () => {
     await waitFor(() => {
       logar();
@@ -127,10 +128,10 @@ describe('Barra de Pesquisa - Header - Página Meals', () => {
         userEvent.click(screen.getByTestId(searchBtnFilter));
       });
     });
-    // global.alert = jest.fn();
-    // expect(global.alert).toHaveBeenCalledTimes(1);
-    // const alertText = await screen.findByText('Sorry, we haven't found any recipes for these filters.');
-    // expect(alertText).toBeInTheDocument();
+    waitFor(() => {
+      global.alert = jest.fn();
+      expect(global.alert).toHaveBeenCalledTimes(1);
+    });
   });
   it('Página Meals - Verificação de filtro 4: no caso em que o usuário digita mais de um caracter para a pesquisa de First Letter, exiba um alerta)', async () => {
     await waitFor(() => {
@@ -144,10 +145,10 @@ describe('Barra de Pesquisa - Header - Página Meals', () => {
         userEvent.click(screen.getByTestId(searchBtnFilter));
       });
     });
-    // global.alert = jest.fn();
-    // expect(global.alert).toHaveBeenCalledTimes(1);
-    // const alertText = await screen.findByText('Your search must have only 1 (one) character');
-    // expect(alertText).toBeInTheDocument();
+    waitFor(() => {
+      global.alert = jest.fn();
+      expect(global.alert).toHaveBeenCalledTimes(1);
+    });
   });
   it('Página Meals - Verificação de filtro 5: no caso em que o usuário digita um caracter para a pesquisa de First Letter, exiba corretamente)', async () => {
     await waitFor(() => {
@@ -284,10 +285,10 @@ describe('Barra de Pesquisa - Header - Página Drinks', () => {
         userEvent.click(screen.getByTestId(searchBtnFilter));
       });
     });
-    // global.alert = jest.fn();
-    // expect(global.alert).toHaveBeenCalledTimes(1);
-    // const alertText = await screen.findByText('Sorry, we haven't found any recipes for these filters.');
-    // expect(alertText).toBeInTheDocument();
+    waitFor(() => {
+      global.alert = jest.fn();
+      expect(global.alert).toHaveBeenCalledTimes(1);
+    });
   });
 
   it('Página Drinks - Verificação de filtro 4: no caso em que o usuário digita mais de um caracter para a pesquisa de First Letter, exiba um alerta)', async () => {
@@ -305,10 +306,10 @@ describe('Barra de Pesquisa - Header - Página Drinks', () => {
         userEvent.click(screen.getByTestId(searchBtnFilter));
       });
     });
-    // global.alert = jest.fn();
-    // expect(global.alert).toHaveBeenCalledTimes(1);
-    // const alertText = await screen.findByText('Your search must have only 1 (one) character');
-    // expect(alertText).toBeInTheDocument();
+    waitFor(() => {
+      global.alert = jest.fn();
+      expect(global.alert).toHaveBeenCalledTimes(1);
+    });
   });
   it('Página Drinks - Verificação de filtro 5: no caso em que o usuário digita um caracter para a pesquisa de First Letter, exiba corretamente)', async () => {
     const { history } = renderWithRouter(<App />);
@@ -357,7 +358,6 @@ describe('Barra de Pesquisa - Header - Página Drinks', () => {
 describe('Barra de Pesquisa - Header (testando mudança de rota a partir da pesquisa)', () => {
   it('Página Meals - Verificação de filtro: no caso em que o retorno é igual a 1, abre a página de detalhes da receita', async () => {
     const { history } = renderWithRouter(<App />);
-    console.log(history);
     await waitFor(() => {
       logar();
       act(() => {
@@ -371,7 +371,7 @@ describe('Barra de Pesquisa - Header (testando mudança de rota a partir da pesq
     });
     const recipeName = await screen.findByText('Lamb tomato and sweet spices');
     expect(recipeName).toBeInTheDocument();
-    // expect(history.location.pathname).toBe('/meals/52782');
+    waitFor(() => expect(history.location.pathname).toBe('/meals/52782'));
   });
   it('Página Drinks - Verificação de filtro: no caso em que o retorno é igual a 1, abre a página de detalhes da receita', async () => {
     const { history } = renderWithRouter(<App />);
@@ -391,6 +391,6 @@ describe('Barra de Pesquisa - Header (testando mudança de rota a partir da pesq
     });
     const recipeName = await screen.findByText('Campari Beer');
     expect(recipeName).toBeInTheDocument();
-    // expect(history.location.pathname).toBe('/drinks/16047');
+    waitFor(() => expect(history.location.pathname).toBe('/drinks/16047'));
   });
 });

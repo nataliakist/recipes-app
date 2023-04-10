@@ -12,7 +12,6 @@ export function SearchBar(page) {
     searchInput,
     searchButtonClick,
     filteredRecipes,
-    emptyFilter,
   } = useContext(HeaderContext);
 
   const history = useHistory();
@@ -21,23 +20,14 @@ export function SearchBar(page) {
   const checkData = () => {
     const pg = Object.values(page);
     if (filteredRecipes.length === 1) {
-      switch (pg[0]) {
-      case 'Meals': {
+      if (pg[0] === 'Meals') {
         const id = filteredRecipes[0].idMeal;
         history.push(`/meals/${id}`);
-        break;
-      }
-      case 'Drinks': {
+      } else {
         const id = filteredRecipes[0].idDrink;
-        console.log(id);
         history.push(`/drinks/${id}`);
-        break;
-      }
-      default:
-        break;
       }
     }
-    if (!filteredRecipes) { emptyFilter(); }
   };
 
   useEffect(() => {
@@ -47,11 +37,7 @@ export function SearchBar(page) {
 
   return (
     <div>
-      <form
-        onSubmit={ (e) => {
-          e.preventDefault();
-        } }
-      >
+      <form>
         <label htmlFor="search-input">
           <Input
             dataTestId="search-input"
