@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 
 function Profile() {
   const history = useHistory();
+  const userEmail = JSON.parse(localStorage.getItem('user'));
+
   return (
     <div>
       <Header title="Profile" />
@@ -24,7 +26,7 @@ function Profile() {
         label="Favorite Recipes"
         type="button"
         dataTestId="profile-favorite-btn"
-        onClick={ () => history.push('favorite-recipes') }
+        onClick={ () => history.push('/favorite-recipes') }
       />
       <Button
         label="Logout"

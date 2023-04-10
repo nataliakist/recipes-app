@@ -5,13 +5,20 @@ import renderWithRouter from './helpers/renderWithRouter';
 
 import App from '../App';
 
+const emailTest = 'teste@teste.com';
+
 const logar = () => {
-  userEvent.type(screen.getByTestId('email-input'), 'teste@teste.com');
+  userEvent.type(screen.getByTestId('email-input'), emailTest);
   userEvent.type(screen.getByTestId('password-input'), 'testando');
   userEvent.click(screen.getByTestId('login-submit-btn'));
 };
 
 describe('Profile', () => {
+  beforeEach(() => {
+    console.log(global.localStorage.setItem);
+    global.localStorage.setItem('user', JSON.stringify({ email: emailTest }));
+  });
+
   const profileTestId = 'profile-top-btn';
   it('Testando se os inputs da página Login funcionam corretamente', () => {
     const { history } = renderWithRouter(<App />);
@@ -19,6 +26,7 @@ describe('Profile', () => {
     logar();
     const profileButton = screen.getByTestId(profileTestId);
     expect(profileButton).toBeInTheDocument();
+    expect(localStorage.getItem('user')).toEqual(JSON.stringify({ email: emailTest }));
 
     userEvent.click(profileButton);
 
