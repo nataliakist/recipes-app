@@ -1,6 +1,5 @@
 import Header from '../components/Header';
-import Button from '../components/Button';
-import FoodCard from '../components/FoodCard';
+import FoodCard from '../components/DoneRecipesCard';
 
 function DoneRecipes() {
   return (
@@ -8,20 +7,23 @@ function DoneRecipes() {
       <Header title="Done Recipes" />
 
       <form>
-        <Button
+        <button
           data-testid="filter-by-all-btn"
-          label="All"
-        />
+        >
+          All
+        </button>
 
-        <Button
+        <button
           data-testid="filter-by-meal-btn"
-          label="Meals"
-        />
+        >
+          Meal
+        </button>
 
-        <Button
+        <button
           data-testid="filter-by-drink-btn"
-          label="Drinks"
-        />
+        >
+          Drinks
+        </button>
 
         <FoodCard />
       </form>
