@@ -61,7 +61,7 @@ function DoneRecipesCard() {
           <h2 data-testid={ `${index}-horizontal-name` }>{ recipe.name }</h2>
           <p data-testid={ `${index}-horizontal-top-text` }>{ recipe.alcoholicOrNot }</p>
           <p data-testid={ `${index}-horizontal-done-date` }>{ recipe.doneDate }</p>
-          <button data-testid={ `${index}-horizontal-share-btn` }>
+          <button data-testid={ `${index}-horizontal-share-btn` } src>
             <img
               src={ shareIcon }
               alt="share"
