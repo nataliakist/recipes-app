@@ -1,6 +1,5 @@
-// import { useEffect } from 'react';
+import DoneRecipesCard from '../components/DoneRecipesCard';
 import Header from '../components/Header';
-import FoodCard from '../components/DoneRecipesCard';
 
 function DoneRecipes() {
   // useEffect(() => {
@@ -48,25 +47,28 @@ function DoneRecipes() {
 
       <form>
         <button
+          type="button"
           data-testid="filter-by-all-btn"
         >
           All
         </button>
 
         <button
+          type="button"
           data-testid="filter-by-meal-btn"
         >
-          Meal
+          Meals
         </button>
 
         <button
+          type="button"
           data-testid="filter-by-drink-btn"
         >
           Drinks
         </button>
-
-        <FoodCard />
       </form>
+
+      <DoneRecipesCard />
     </main>
   );
 }
