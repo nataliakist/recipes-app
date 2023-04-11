@@ -1,16 +1,13 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import shareIcon from '../images/shareIcon.svg';
+import DoneRecipesContext from '../context/DoneRecipesContext';
 
 function DoneRecipesCard() {
-  const getRecipes = localStorage.getItem('doneRecipes')
-    ? (JSON.parse(localStorage.getItem('doneRecipes'))) : [];
-  const [doneRecipe, setDoneRecipe] = useState(getRecipes);
-  console.log(setDoneRecipe);
-
+  const { doneRecipe } = useContext(DoneRecipesContext);
   return (
     <main>
 
-      { doneRecipe.map((recipe, index) => (
+      { doneRecipe.length > 0 && doneRecipe.map((recipe, index) => (
         <div key={ index }>
           <img
             src={ recipe.image }
@@ -34,8 +31,7 @@ function DoneRecipesCard() {
           }
 
           <p data-testid={ `${index}-horizontal-done-date` }>{recipe.doneDate}</p>
-
-          {recipe.tags.slice(0, 2).map((tagName, tagIndex) => (
+          {recipe.tags.length > 0 && recipe.tags.slice(0, 2).map((tagName, tagIndex) => (
             <p
               key={ tagIndex }
               data-testid={ `${index}-${tagName}-horizontal-tag` }
