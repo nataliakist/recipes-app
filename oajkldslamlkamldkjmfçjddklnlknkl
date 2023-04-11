@@ -1,0 +1,234 @@
+[33mcommit 37239e0ffc254d34b9e5d97c9cdc4624517f8dfb[m[33m ([m[1;36mHEAD -> [m[1;32mmain-group-11-done-recipes-tests[m[33m)[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Tue Apr 11 16:54:27 2023 -0300
+
+    Testes com 100% de cobertura
+    
+    Requisitos não finalizados, então essa porcentagem pode variar
+
+[33mcommit 3486b91caa7fd327a913df890b8e86435fb7690d[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Tue Apr 11 15:51:51 2023 -0300
+
+    Iniciando testes
+
+[33mcommit b6100c9276a37199b8ade7ef5bd3a2e7cea952f9[m[33m ([m[1;31morigin/main-group-11[m[33m, [m[1;32mmain-group-11[m[33m)[m
+Merge: 998c4e8 45fc7d7
+Author: fernandamacedoo <115579297+fernandamacedoo@users.noreply.github.com>
+Date:   Tue Apr 11 20:04:47 2023 -0300
+
+    Merge pull request #313 from tryber/main-group-11-req-44
+    
+    [ Grupo 11 ] Requisito 48
+
+[33mcommit 45fc7d7850b3d9df84f899e50127654264f65239[m[33m ([m[1;31morigin/main-group-11-req-44[m[33m)[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 19:46:42 2023 -0300
+
+    req 48
+    
+    finaliza req 48
+
+[33mcommit 998c4e8aceb444fc77d988cb6b74608dca50522f[m
+Merge: 90be8c9 c6bd3eb
+Author: Natália Lauschner Kist <115579077+nataliakist@users.noreply.github.com>
+Date:   Tue Apr 11 15:38:03 2023 -0300
+
+    Merge pull request #292 from tryber/main-group-11-req-44
+    
+    [ Grupo 11 ] - Req 44, 45, 46 sem testes
+
+[33mcommit c6bd3eb74e2fc16d125f9c3ab075c0a78bdf6e20[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 15:00:52 2023 -0300
+
+    te odeio lint
+
+[33mcommit 7269617eb86f9aab79bfb774c95c1724a96812e0[m
+Merge: 75c2d94 90be8c9
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 14:52:40 2023 -0300
+
+    Merge branch 'main-group-11' of github.com:tryber/sd-028-a-project-recipes-app into main-group-11-req-44
+
+[33mcommit 90be8c9c5abd32b5768efddd29a12b3484e1f5b9[m
+Merge: 919ced6 59dcd22
+Author: marcos-schlautmann <marcos27.bonfim@gmail.com>
+Date:   Tue Apr 11 14:50:14 2023 -0300
+
+    Merge pull request #213 from tryber/main-group-11-req57
+    
+    [Grupo 11] - Requisitos 57 a 62 - mock do localStorage
+
+[33mcommit 75c2d94a3a4818ba962474dfe1d68c06db7b6c8f[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 14:31:23 2023 -0300
+
+    atualização anti linter
+
+[33mcommit 59dcd22a8c98bc8c8765b79eedc55d175dc917b3[m[33m ([m[1;31morigin/main-group-11-req57[m[33m)[m
+Author: Marcos <marcos27.bonfim@gmail.com>
+Date:   Tue Apr 11 14:30:12 2023 -0300
+
+    branch atualizada
+
+[33mcommit 19d5688e7747c5ebe0ffd5294790566e1ead5571[m
+Merge: 21ebe91 919ced6
+Author: Marcos <marcos27.bonfim@gmail.com>
+Date:   Tue Apr 11 14:28:45 2023 -0300
+
+    Merge branch 'main-group-11' into main-group-11-req57
+
+[33mcommit 5be95e1b828f82f7dc143eb76cbcf463e760710e[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 12:58:19 2023 -0300
+
+    req 44, 45 e 46 sem os testes
+    
+    finaliza os reqs 44, 45 e 90% do req 46 pq ainda falta fazer os testes
+
+[33mcommit a505da1d2d887f1b8b91f2831fd9f585c60414a4[m
+Merge: fd2d7c0 919ced6
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 11:45:38 2023 -0300
+
+    Merge branch 'main-group-11' of github.com:tryber/sd-028-a-project-recipes-app into main-group-11-req-44
+
+[33mcommit fd2d7c047e95e20e995bac679e5c0a144c9812e6[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Tue Apr 11 11:44:58 2023 -0300
+
+    commit pra merge
+
+[33mcommit 919ced68841a99459fc2b95267a49d407f99d4f3[m
+Merge: a433dc2 a42dbd3
+Author: len-onN <115579388+len-onN@users.noreply.github.com>
+Date:   Tue Apr 11 09:06:30 2023 -0300
+
+    Merge pull request #280 from tryber/main-group-11-fixing-pt1
+    
+    Main group 11 fixing pt1
+
+[33mcommit a42dbd374c06b11c891d0f61ba76cddd38193c1e[m[33m ([m[1;31morigin/main-group-11-fixing-pt1[m[33m, [m[1;32mmain-group-11-fixing-pt1[m[33m)[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Tue Apr 11 08:43:07 2023 -0300
+
+    Resolvendo Bug
+    
+    Requisito 14 estava crashando + removendo warning
+
+[33mcommit 48669de65080d5b6a007355c2f03afa3b190b149[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Tue Apr 11 08:41:26 2023 -0300
+
+    Resolvendo Bug
+    
+    Requisito 14 estava crashando
+
+[33mcommit cc560ca85ae9f1d0fdcb0460aaddd4ea48e0cf0c[m
+Merge: edf324f a433dc2
+Author: Matheus <maahwiski@gmail.com>
+Date:   Mon Apr 10 19:21:11 2023 -0300
+
+    Merge branch 'main-group-11' of github.com:tryber/sd-028-a-project-recipes-app into main-group-11-req-44
+
+[33mcommit edf324f20d2edd121b76eed58b893a91b0c8f092[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Mon Apr 10 19:20:36 2023 -0300
+
+    pre commit
+
+[33mcommit 9cdbd79d0ed44b012eee39c38b64f2837dacb648[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Mon Apr 10 19:19:51 2023 -0300
+
+    finaliza os requisitos, mas ainda não passa nos testes por faltar a lógica do localStorage
+
+[33mcommit 21ebe9194e8f1be9b2418a08100aaabd30411d96[m
+Merge: 74caf46 a433dc2
+Author: Marcos <marcos27.bonfim@gmail.com>
+Date:   Mon Apr 10 18:36:05 2023 -0300
+
+    Merge branch 'main-group-11' into main-group-11-req57
+
+[33mcommit a433dc2de44fe1f7380621d0856ebfd8b003827e[m
+Merge: 9f4ace2 24a6576
+Author: fernandamacedoo <115579297+fernandamacedoo@users.noreply.github.com>
+Date:   Mon Apr 10 18:31:22 2023 -0300
+
+    Merge pull request #228 from tryber/main-group-11-search-bar-tests
+
+[33mcommit 9f4ace201f18d844bd58548708d851188335a6c0[m
+Merge: 7f806f0 e86641a
+Author: marcos-schlautmann <marcos27.bonfim@gmail.com>
+Date:   Mon Apr 10 18:29:42 2023 -0300
+
+    Merge pull request #137 from tryber/group-11-detailed-screen
+    
+    Group - 11 - Detailed Screen
+
+[33mcommit 74caf46772af1215f5e0d5acd87ad1425f064c62[m
+Author: Marcos <marcos27.bonfim@gmail.com>
+Date:   Mon Apr 10 16:53:47 2023 -0300
+
+    requisito 60 e 62, conseertando erro de Time Out
+
+[33mcommit 24a6576ab7bd154a0979dcc84b95c58e0917576a[m[33m ([m[1;31morigin/main-group-11-search-bar-tests[m[33m, [m[1;32mmain-group-11-search-bar-tests[m[33m)[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Mon Apr 10 16:39:24 2023 -0300
+
+    Testes da SearchBar finalizados
+    
+    Testes com 100% de cobertura + exclusão de funções e estados inutilizados
+
+[33mcommit e86641a951e329c11e9b634ace68248ced943323[m[33m ([m[1;31morigin/group-11-detailed-screen[m[33m)[m
+Author: ShayLopes <shaytom71@gmail.com>
+Date:   Mon Apr 10 15:35:24 2023 -0300
+
+    Código atualizado
+
+[33mcommit 16dd261fb1bac400f868d88787802380d0b90392[m
+Author: Matheus <maahwiski@gmail.com>
+Date:   Mon Apr 10 15:06:08 2023 -0300
+
+    requisito 44
+    
+    cria o card das receitas prontas com seus data-testid
+
+[33mcommit 20d778cc98aa2827e515479107be92b77e53f08d[m
+Author: Marcos <marcos27.bonfim@gmail.com>
+Date:   Mon Apr 10 13:50:48 2023 -0300
+
+    requisitos 57 a 62, acrescentei uma barra que faltava na rota /favorite-recipes, e adicionei o mock do localStorage
+
+[33mcommit 7f806f0aab1f04823fe500af0036826e51e7c781[m
+Merge: 8a903b7 08f4163
+Author: len-onN <115579388+len-onN@users.noreply.github.com>
+Date:   Fri Apr 7 11:13:03 2023 -0300
+
+    Merge pull request #199 from tryber/main-group-11-merging-profile-search-bar
+    
+    Mergeando últimos PRs
+
+[33mcommit 08f4163255e21ff06e662f521583fcfa69f46e71[m[33m ([m[1;31morigin/main-group-11-merging-profile-search-bar[m[33m, [m[1;32mmain-group-11-merging-profile-search-bar[m[33m)[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Fri Apr 7 08:50:59 2023 -0300
+
+    Mergeando os últimos PR
+    
+    Correção dos testes profile + adição das modificações da search bar
+
+[33mcommit eb0fda7a9215fa67edce94e6a252c4887eb1ee16[m[33m ([m[1;32mmain-group-11-search-bar[m[33m)[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Fri Apr 7 08:49:12 2023 -0300
+
+    Mergeando os últimos PR
+    
+    Correção dos testes profile + adição das modificações da search bar
+
+[33mcommit 09c42e8bf29b8de28acbc78dc601bce1dec32484[m
+Author: Fernanda Carvalho de Macêdo <nandaamacedoo@gmail.com>
+Date:   Thu Apr 6 16:27:35 2023 -0300
+
+    Search bar - testes com 70%
+
