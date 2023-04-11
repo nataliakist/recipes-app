@@ -4,8 +4,8 @@ import shareIcon from '../images/shareIcon.svg';
 function DoneRecipesCard() {
   const getRecipes = localStorage.getItem('doneRecipes')
     ? (JSON.parse(localStorage.getItem('doneRecipes'))) : [];
-  // eslint-disable-next-line no-unused-vars
   const [doneRecipe, setDoneRecipe] = useState(getRecipes);
+  console.log(setDoneRecipe);
 
   return (
     <main>
