@@ -19,8 +19,9 @@ export function SearchBar(page) {
   // Verifica se o retorno da API só tem um item, pois neste caso o usuário tem que ser direcionado à página de detalhes da receita
   const checkData = () => {
     const pg = Object.values(page);
+    console.log(page);
     if (filteredRecipes.length === 1) {
-      if (pg[0] === 'Meals') {
+      if (pg[0] === 'Meals' || pg[0] === 'Detailed Recipes') {
         const id = filteredRecipes[0].idMeal;
         history.push(`/meals/${id}`);
       } else {

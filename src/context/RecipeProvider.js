@@ -26,6 +26,7 @@ export default function RecipeProvider({ children }) {
           .then((response) => setRecommended(response.meals));
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const values = useMemo(() => ({
