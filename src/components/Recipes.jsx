@@ -22,7 +22,6 @@ function Recipes() {
 
   useEffect(() => {
     if (filteredRecipes.length > 1) {
-      console.log('aqui');
       setRecipes(filteredRecipes);
     } else if (pathname === '/meals') {
       getMeals('s', '', 'search', 'meals')
