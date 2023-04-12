@@ -1,8 +1,9 @@
 import React from 'react';
-import { screen } from '@testing-library/react';
+import { screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DoneRecipes from '../pages/DoneRecipes';
 import renderWithRouter from './helpers/renderWithRouter';
+import DoneRecipesProvider from '../context/DoneRecipesProvider';
 
 const doneRecipes = [
   {
@@ -34,7 +35,13 @@ const imgId2 = '1-horizontal-image';
 
 describe('Testa Done Recipes', () => {
   beforeEach(() => {
-    renderWithRouter(<DoneRecipes />);
+    act(() => {
+      renderWithRouter(
+        <DoneRecipesProvider>
+          <DoneRecipes />
+        </DoneRecipesProvider>,
+      );
+    });
     localStorage.clear();
     localStorage.setItem('doneRecipes', JSON.stringify(doneRecipes));
   });
