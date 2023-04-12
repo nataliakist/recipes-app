@@ -42,7 +42,7 @@ describe('Testes de cobertura de página para página receitas em progresso', ()
     localStorageMock.setItem('favoriteRecipes', JSON.stringify(favoriteRecipesMock));
     Object.defineProperty(global, 'localStorage', { value: localStorageMock });
 
-    const { history } = renderWithRouter(<App />, /*'/meals/52771/in-progress'*/);
+    const { history } = renderWithRouter(<App />);
     await act(async () => {
       history.push('/meals/52771/in-progress');
     });
