@@ -22,7 +22,6 @@ function Recipes() {
 
   useEffect(() => {
     if (filteredRecipes.length > 1) {
-      console.log('aqui');
       setRecipes(filteredRecipes);
     } else if (pathname === '/meals') {
       getMeals('s', '', 'search', 'meals')
@@ -61,25 +60,18 @@ function Recipes() {
           .then(setRecipes);
         setCategory(target.textContent);
       }
+    } else if (pathname === '/meals') {
+      getMeals('s', '', 'search', 'meals')
+        .then((response) => response
+          .slice(0, twelve))
+        .then(setRecipes);
+      setCategory('');
     } else {
-      switch (pathname) {
-      case '/meals':
-        getMeals('s', '', 'search', 'meals')
-          .then((response) => response
-            .slice(0, twelve))
-          .then(setRecipes);
-        setCategory('');
-        break;
-      case '/drinks':
-        getDrinks('s', '', 'search', 'drinks')
-          .then((response) => response
-            .slice(0, twelve))
-          .then(setRecipes);
-        setCategory('');
-        break;
-      default:
-        break;
-      }
+      getDrinks('s', '', 'search', 'drinks')
+        .then((response) => response
+          .slice(0, twelve))
+        .then(setRecipes);
+      setCategory('');
     }
   };
 
