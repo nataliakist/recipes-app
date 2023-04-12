@@ -13,7 +13,7 @@ function Profile() {
       <p
         data-testid="profile-email"
       >
-        { userEmail.email }
+        { userEmail ? userEmail.email : ''}
       </p>
       <Button
         label="Done Recipes"
