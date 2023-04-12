@@ -12,6 +12,7 @@ export default function DoneRecipesProvider({ children }) {
     }
 
     setDoneRecipe(getRecipes);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const filterMeals = useCallback(() => {
