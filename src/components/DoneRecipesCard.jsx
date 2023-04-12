@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import shareIcon from '../images/shareIcon.svg';
 import DoneRecipesContext from '../context/DoneRecipesContext';
 
@@ -9,14 +10,18 @@ function DoneRecipesCard() {
 
       { doneRecipe.length > 0 && doneRecipe.map((recipe, index) => (
         <div key={ index }>
-          <img
-            src={ recipe.image }
-            alt={ recipe.name }
-            data-testid={ `${index}-horizontal-image` }
-          />
+          <Link
+            to={ `/${recipe.type}s/${recipe.id}` }
+          >
+            <img
+              src={ recipe.image }
+              alt={ recipe.name }
+              data-testid={ `${index}-horizontal-image` }
+              width="100px"
+            />
 
-          <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
-
+            <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
+          </Link>
           {
             recipe.type === 'meal' ? (
               <p data-testid={ `${index}-horizontal-top-text` }>
