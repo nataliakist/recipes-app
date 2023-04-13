@@ -11,14 +11,9 @@ const renderWithRouter = (component, initalEntries = ['/']) => {
   return ({
     ...render(
       <Router history={ history }>
-        <DoneRecipesProvider>
-          <RecipeProvider>
-            <HeaderProvider>
-              {component}
-            </HeaderProvider>
-          </RecipeProvider>
-        </DoneRecipesProvider>
-
+        <HeaderProvider>
+          {component}
+        </HeaderProvider>
       </Router>,
     ),
     history,

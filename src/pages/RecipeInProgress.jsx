@@ -57,6 +57,7 @@ function RecipeInProgress() {
     if (previousFavorites.some((fav) => fav.id === id)) { setIsFav(true); }
     const previousDoneRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
     || {};
+    // const pDNAR = Object.value();
     if (previousDoneRecipes[type]) setChecks(previousDoneRecipes[type][id]);
     const measuresAr = [];
     const ingredientsAr = [];
@@ -104,14 +105,15 @@ function RecipeInProgress() {
     const prevCAr = previousChecks ? Object.values(previousChecks) : [];
     let newChecks = {};
     if (prevCAr.length > 0) {
-      if (ingredientsDone.length === ingredients.length || ingredientsDone.length === 0) {
-        delete previousChecks[type][id];
-        newChecks = previousChecks;
-      } else if (ingredientsDone
-        .length !== ingredients.length && ingredientsDone.length > 0) {
-        newChecks = { ...previousChecks,
-          [type]: { ...previousChecks[type], [id]: ingredientsDone } };
-      }
+      // if (ingredientsDone.length === ingredients.length || ingredientsDone.length === 0) {
+      //   delete previousChecks[type][id];
+      //   newChecks = { ...previousChecks,
+      //     [type]: { ...previousChecks[type], [id]: ingredientsDone } };
+      // } else if (ingredientsDone
+      //   .length !== ingredients.length && ingredientsDone.length > 0) {
+      newChecks = { ...previousChecks,
+        [type]: { ...previousChecks[type], [id]: ingredientsDone } };
+      // }
     } else {
       newChecks = { [type]: { [id]: ingredientsDone } };
     }
