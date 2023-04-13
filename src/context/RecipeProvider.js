@@ -31,8 +31,10 @@ export default function RecipeProvider({ children }) {
   const values = useMemo(() => ({
     fullDetails,
     recommended,
+    id,
     setId,
   }), [
+    id,
     fullDetails,
     recommended,
   ]);
