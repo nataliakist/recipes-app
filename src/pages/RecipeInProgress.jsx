@@ -58,7 +58,10 @@ function RecipeInProgress() {
     const previousDoneRecipes = JSON.parse(localStorage.getItem('inProgressRecipes'))
     || {};
     // const pDNAR = Object.value();
-    if (previousDoneRecipes[type]) setChecks(previousDoneRecipes[type][id]);
+    const checksOf = previousDoneRecipes[type] ? Object
+      .keys(previousDoneRecipes[type]) : [];
+    console.log(checksOf);
+    if (checksOf.includes(id)) setChecks(previousDoneRecipes[type][id]);
     const measuresAr = [];
     const ingredientsAr = [];
     const twenty = 20;
