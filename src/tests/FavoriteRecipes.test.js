@@ -1,11 +1,11 @@
 import React from 'react';
 import { screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import DoneRecipes from '../pages/DoneRecipes';
 import renderWithRouter from './helpers/renderWithRouter';
 import GetRecipesProvider from '../context/GetRecipesProvider';
+import FavoriteRecipes from '../pages/FavoriteRecipes';
 
-const doneRecipes = [
+const favoriteRecipes = [
   {
     image: 'https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg',
     name: 'Apple Frangipan Tart',
@@ -38,16 +38,16 @@ describe('Testa Done Recipes', () => {
     act(() => {
       renderWithRouter(
         <GetRecipesProvider>
-          <DoneRecipes />
+          <FavoriteRecipes />
         </GetRecipesProvider>,
       );
     });
     localStorage.clear();
-    localStorage.setItem('doneRecipes', JSON.stringify(doneRecipes));
+    localStorage.setItem('favoriteRecipes', JSON.stringify(favoriteRecipes));
   });
 
   it('Verifica se os elementos do Header são renderizados na tela', () => {
-    expect(screen.getByText('Done Recipes')).toBeInTheDocument();
+    expect(screen.getByText('Favorite Recipes')).toBeInTheDocument();
     expect(screen.getByTestId('profile-top-btn')).toBeInTheDocument();
   });
   it('Verifica se os botões de filtro são renderizados na tela', () => {
@@ -99,8 +99,5 @@ describe('Testa Done Recipes', () => {
     expect(img2).toBeInTheDocument();
 
     expect(screen.queryByTestId(imgId1)).not.toBeInTheDocument();
-  });
-  it('Verifica a função de copiar link', () => {
-
   });
 });

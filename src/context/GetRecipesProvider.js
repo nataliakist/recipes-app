@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useCallback, useMemo, useState } from 'react';
-import { propTypes } from 'react-bootstrap/esm/Image';
 import GetRecipesContext from './GetRecipesContext';
 
 export default function GetRecipesProvider({ children }) {
@@ -39,7 +38,6 @@ export default function GetRecipesProvider({ children }) {
 }
 
 GetRecipesProvider.propTypes = {
-  LSItem: propTypes.string,
   children: PropTypes.PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
