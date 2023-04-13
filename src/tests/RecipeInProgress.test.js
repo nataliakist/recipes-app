@@ -9,8 +9,8 @@ import RecipeInProgress from '../pages/RecipeInProgress';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 // import { getDetailedDrink } from '../services/drinksAPI';
-import { getDetailedMeals } from '../services/mealsAPI';
-import meal from './mocks/mealA';
+// import { getDetailedMeals } from '../services/mealsAPI';
+// import meal from './mocks/mealA';
 
 Object.assign(navigator, {
   clipboard: {
@@ -94,12 +94,12 @@ describe('Testes de cobertura de página para página receitas em progresso', ()
     expect(listIng[0]).toHaveStyle('text-decoration: line-through solid rgb(0, 0, 0)');
     expect(checks[0]).toBeChecked();
   });
-  it('Teste de funcionalidade das checkbox - localStorage', async () => {
-    const { history } = renderWithRouter(<RecipeInProgress />);
-    await act(async () => {
-      history.push('/meals/53060/in-progress');
-    });
-    waitFor(() => {
-    });
-  });
+  // it('Teste de funcionalidade das checkbox - localStorage', async () => {
+  //   const { history } = renderWithRouter(<RecipeInProgress />);
+  //   await act(async () => {
+  //     history.push('/meals/53060/in-progress');
+  //   });
+  //   waitFor(() => {
+  //   });
+  // });
 });
