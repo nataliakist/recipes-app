@@ -3,7 +3,9 @@ import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import RecipeContext from '../context/RecipeContext';
 import Button from './Button';
+import FavoriteButton from './FavoriteButton';
 import '../carouselStyles.css';
+import ShareButton from './ShareButton';
 
 function DetailedRecipeCard() {
   const { fullDetails, recommended } = useContext(RecipeContext);
@@ -21,9 +23,8 @@ function DetailedRecipeCard() {
     const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes'));
     if (doneRecipes !== null) {
       doneRecipes.forEach((value) => {
-        if ((value.id).includes(id)) {
-          setFinished(true);
-        }
+        if ((value.id).includes(id)) setFinished(true);
+        else setFinished(false);
       });
     }
   };
@@ -36,17 +37,19 @@ function DetailedRecipeCard() {
       if (meals) {
         Object.keys(meals).forEach((value) => {
           if (value.includes(id)) setIsStarted(true);
+          else setIsStarted(false);
         });
       }
       if (drinks) {
         Object.keys(drinks).forEach((value) => {
           if (value.includes(id)) setIsStarted(true);
+          else setIsStarted(false);
         });
       }
     }
   };
 
-  useEffect(() => { progressVerify(); doneVerify(); }, []);
+  useEffect(() => { doneVerify(); progressVerify(); }, [id, fullDetails]);
 
   if (recommended !== null) {
     for (let i = 0; i < recommendedAmount; i += 1) {
@@ -73,16 +76,8 @@ function DetailedRecipeCard() {
     });
     return (
       <>
-        <Button
-          type="button"
-          label="Share"
-          dataTestId="share-btn"
-        />
-        <Button
-          type="button"
-          label="Favorite"
-          dataTestId="favorite-btn"
-        />
+        <FavoriteButton />
+        <ShareButton />
         <img
           src={ fullDetails.strMealThumb || fullDetails.strDrinkThumb }
           alt={ fullDetails.strMeal || fullDetails.strDrink }
