@@ -6,3 +6,7 @@ footer {
   position: fixed;
   width: 100%;
 }
+
+button {
+  z-index: 1;
+}
