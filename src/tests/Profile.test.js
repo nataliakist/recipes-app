@@ -12,9 +12,11 @@ describe('Profile', () => {
 
   //   Object.defineProperty(global, 'localStorage', { value: localStorageMock });
   // });
+  const email = 'teste@teste.com';
+  const profileEmail = 'profile-email';
 
   it('Testando se os inputs da página Login funcionam corretamente', () => {
-    localStorageMock.setItem('user', JSON.stringify({ email: 'teste@teste.com' }));
+    localStorageMock.setItem('user', JSON.stringify({ email }));
 
     Object.defineProperty(global, 'localStorage', { value: localStorageMock });
     const { history } = renderWithRouter(<Profile />);
@@ -22,7 +24,7 @@ describe('Profile', () => {
     const doneButton = screen.getByTestId('profile-done-btn');
     const favoriteButton = screen.getByTestId('profile-favorite-btn');
     const logOutButton = screen.getByTestId('profile-logout-btn');
-    const emailUser = screen.getByTestId('profile-email');
+    const emailUser = screen.getByTestId(profileEmail);
 
     expect(doneButton).toBeInTheDocument();
     expect(favoriteButton).toBeInTheDocument();
@@ -34,7 +36,7 @@ describe('Profile', () => {
     expect(history.location.pathname).toBe('/done-recipes');
   });
   it('Testa se ao clica no botão favorite redireciona para pagina favorites-recipes', async () => {
-    localStorageMock.setItem('user', JSON.stringify({ email: 'teste@teste.com' }));
+    localStorageMock.setItem('user', JSON.stringify({ email }));
 
     Object.defineProperty(global, 'localStorage', { value: localStorageMock });
     const { history } = renderWithRouter(<Profile />);
@@ -46,7 +48,7 @@ describe('Profile', () => {
     expect(history.location.pathname).toBe('/favorite-recipes');
   });
   it('Testa se ao clica no botão favorite redireciona para pagina favorites-recipes', async () => {
-    localStorageMock.setItem('user', JSON.stringify({ email: 'teste@teste.com' }));
+    localStorageMock.setItem('user', JSON.stringify({ email }));
 
     Object.defineProperty(global, 'localStorage', { value: localStorageMock });
     const { history } = renderWithRouter(<Profile />);
@@ -62,7 +64,7 @@ describe('Profile', () => {
 
     Object.defineProperty(global, 'localStorage', { value: localStorageMock });
     renderWithRouter(<Profile />);
-    const profileE = screen.getByTestId('profile-email');
+    const profileE = screen.getByTestId(profileEmail);
     expect(profileE).toBeInTheDocument();
   });
   it('', () => {
