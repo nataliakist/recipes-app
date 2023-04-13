@@ -3,8 +3,8 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { render } from '@testing-library/react';
 import HeaderProvider from '../../context/HeaderProvider';
-import RecipeProvider from '../../context/RecipeProvider';
-import DoneRecipesProvider from '../../context/DoneRecipesProvider';
+// import RecipeProvider from '../../context/RecipeProvider';
+// import DoneRecipesProvider from '../../context/DoneRecipesProvider';
 
 const renderWithRouter = (component, initalEntries = ['/']) => {
   const history = createMemoryHistory({ initalEntries });
