@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import PropTypes from 'prop-types';
 import RecipeContext from '../context/RecipeContext';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 
-function FavoriteButton() {
+function FavoriteButton({ testid }) {
   const [isFavorite, setIsFavorite] = useState(null);
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
-  const { id, fullDetails } = useContext(RecipeContext);
+  const { fullDetails, id } = useContext(RecipeContext);
   const { pathname } = useLocation();
 
   const setFavorite = () => {
@@ -15,7 +16,7 @@ function FavoriteButton() {
       const newArr = favoriteRecipes.filter((value) => value.id !== id);
       localStorage.setItem('favoriteRecipes', JSON.stringify(newArr));
       setIsFavorite(false);
-    } else if (!isFavorite) {
+    } else if (fullDetails && !isFavorite) {
       const type = pathname.includes('drinks') ? 'drink' : 'meal';
       const newArr = [{
         id,
@@ -35,17 +36,25 @@ function FavoriteButton() {
   useEffect(() => {
     setIsFavorite(favoriteRecipes.some((value) => (value.id).includes(id)));
     setFavoriteRecipes(JSON.parse(localStorage.getItem('favoriteRecipes')) || []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFavorite, id]);
 
   return (
     <button
       type="button"
-      data-testid="favorite-btn"
       onClick={ () => { setFavorite(); } }
-      src={ !isFavorite ? whiteHeartIcon : blackHeartIcon }
     >
-      <img alt="favorite icon" src={ !isFavorite ? whiteHeartIcon : blackHeartIcon } />
+      <img
+        alt="favorite icon"
+        src={ !isFavorite ? whiteHeartIcon : blackHeartIcon }
+        data-testid={ testid }
+      />
     </button>
   );
 }
+
 export default FavoriteButton;
+
+FavoriteButton.propTypes = {
+  testid: PropTypes.string,
+}.isRequired;

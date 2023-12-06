@@ -49,6 +49,7 @@ function DetailedRecipeCard() {
     }
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { doneVerify(); progressVerify(); }, [id, fullDetails]);
 
   if (recommended !== null) {

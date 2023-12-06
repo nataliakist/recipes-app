@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
 import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import shareIcon from '../images/shareIcon.svg';
-import blackHeartIcon from '../images/blackHeartIcon.svg';
+
 import GetRecipesContext from '../context/GetRecipesContext';
+import FavoriteButton from './FavoriteButton';
+import ShareButton from './ShareButton';
 
 function GetRecipesCard({ LSItem }) {
   const {
@@ -34,64 +35,54 @@ function GetRecipesCard({ LSItem }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <main>
+  if (recipes.length > 0) {
+    return (
+      <main>
 
-      { recipes?.map((recipe, index) => (
-        <div key={ index }>
-          <Link
-            to={ `/${recipe.type}s/${recipe.id}` }
-          >
-            <img
-              src={ recipe.image }
-              alt={ recipe.name }
-              data-testid={ `${index}-horizontal-image` }
-              width="100px"
-            />
+        { recipes?.map((recipe, index) => (
+          <div key={ index }>
+            <Link
+              to={ `/${recipe.type}s/${recipe.id}` }
+            >
+              <img
+                src={ recipe.image }
+                alt={ recipe.name }
+                data-testid={ `${index}-horizontal-image` }
+                width="100px"
+              />
 
-            <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
-          </Link>
-          {
-            recipe.type === 'meal' ? (
-              <p data-testid={ `${index}-horizontal-top-text` }>
-                { `${recipe.nationality} - ${recipe.category}` }
-              </p>
-            )
-              : (
+              <p data-testid={ `${index}-horizontal-name` }>{recipe.name}</p>
+            </Link>
+            {
+              recipe.type === 'meal' ? (
                 <p data-testid={ `${index}-horizontal-top-text` }>
-                  { recipe.alcoholicOrNot}
+                  { `${recipe.nationality} - ${recipe.category}` }
                 </p>
               )
-          }
+                : (
+                  <p data-testid={ `${index}-horizontal-top-text` }>
+                    { recipe.alcoholicOrNot}
+                  </p>
+                )
+            }
 
-          <p data-testid={ `${index}-horizontal-done-date` }>{recipe.doneDate}</p>
-          {recipe.tags?.slice(0, 2).map((tagName, tagIndex) => (
-            <p
-              key={ tagIndex }
-              data-testid={ `${index}-${tagName}-horizontal-tag` }
-            >
-              {tagName}
-            </p>
-          ))}
-          <button type="button">
-            <img
-              src={ shareIcon }
-              alt="share"
-              data-testid={ `${index}-horizontal-share-btn` }
-            />
-          </button>
-          <button type="button">
-            <img
-              src={ blackHeartIcon }
-              alt="favorite icon"
-              data-testid={ `${index}-horizontal-favorite-btn` }
-            />
-          </button>
-        </div>
-      ))}
+            <p data-testid={ `${index}-horizontal-done-date` }>{recipe.doneDate}</p>
+            {recipe.tags?.slice(0, 2).map((tagName, tagIndex) => (
+              <p
+                key={ tagIndex }
+                data-testid={ `${index}-${tagName}-horizontal-tag` }
+              >
+                {tagName}
+              </p>
+            ))}
+            <ShareButton testid={ `${index}-horizontal-share-btn` } />
+            <FavoriteButton testid={ `${index}-horizontal-favorite-btn` } />
+          </div>
+        ))}
 
-    </main>
-  );
+      </main>
+    );
+  }
 }
 
 export default GetRecipesCard;

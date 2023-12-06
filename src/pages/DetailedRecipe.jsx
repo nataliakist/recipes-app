@@ -23,7 +23,7 @@ function DetailedRecipes() {
   return (
     <>
       { pathname.includes('meals') ? (
-        <Header title="Deailed Meals" />
+        <Header title="Detailed Meals" />
       ) : (
         <Header title="Detailed Drinks" />
       )}
